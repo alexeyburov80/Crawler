@@ -1,0 +1,6 @@
+requests
+beautifulsoup4
+lxml
+pymorphy3
+python-dotenv
+playwright
