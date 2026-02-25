@@ -38,6 +38,4 @@ def check_word(word: str):
 
     results = cursor.fetchall()
     conn.close()
-    # return [row[0] for row in results]
-    if len(results) == 0:
-        logger.info(f"Not found in dictionary: {word}")
+    return [row[0] for row in results]

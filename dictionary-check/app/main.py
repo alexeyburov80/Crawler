@@ -21,14 +21,19 @@ def main():
     urls = [u.strip() for u in start_urls.split(",")]
     print(f"\nurls: {urls}")
     for start_url in urls:
+        logger.info(f"URL: {start_url}")
         logger.info(f"Processing site: {start_url}")
-
+        logger.info("=" * 50)
         domain = urlparse(start_url).netloc
         text = crawl(start_url, domain, depth=depth)
         lemmas = normalize_text(text)
 
-        for word in lemmas:
-           check_word(word)
+        for original_word, lemma in lemmas:
+            l = check_word(lemma)
+            if len(l) == 0:
+                logger.info(f"Not found in dictionary: {original_word}")
+
+
 
 
 if __name__ == "__main__":

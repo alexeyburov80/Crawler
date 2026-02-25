@@ -6,7 +6,7 @@ visited = set()
 
 def crawl(start_url, domain, depth=1):
 
-    print("depth: {}".format(depth))
+    print("depth: {}\nstart_url: {}\ndomain: {}".format(depth, start_url, domain))
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
